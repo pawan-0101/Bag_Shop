@@ -1,20 +1,24 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/bagshop');
+
 const userSchema =  mongoose.Schema({
-     username:String,
-     email:String,
-        password:String,
-        cart:{
-            type:Array,
-            default:[]
-        },
-     isadmin:Boolean,
-     order:{
-        type:Array,
-        default:[]
-     },
-     contact:String,
-     picture:String
+      fullname: {
+    type: String,
+    minLength: 3,
+    trim: true,
+  },
+  email: String,
+  password: String,
+  cart: {
+    type: Array,
+    default: [],
+  },
+  orders: {
+    type: Array,
+    default: [],
+  },
+  contact: Number,
+  picture: String,
 });
-const userModel = mongoose.model('users',userSchema);
+
+const userModel = mongoose.model('user',userSchema);
 module.exports = userModel;
