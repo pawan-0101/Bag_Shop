@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require("dotenv").config();
 const ownerSchema = mongoose.Schema({
     fullname:{
         type:String,
